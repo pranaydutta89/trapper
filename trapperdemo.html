@@ -2,10 +2,17 @@
 
 <head>
     <title>Trapper demo</title>
-    <script>
-        var data = { type: "FROM_PAGE", text: "Hello from the webpage!" };
-        window.postMessage(data, "*");
-    </script>
+
 </head>
+
+<body>
+    <button id='theButton'>the button</button>
+</body>
+<script>
+    document.getElementById("theButton").addEventListener("click",
+        function () {
+            window.postMessage({ type: "FROM_PAGE", text: "Hello from the webpage!" }, "*");
+        }, false);
+</script>
 
 </html>
