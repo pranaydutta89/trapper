@@ -1,0 +1,27 @@
+{
+  "name": "trapperjs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel panel.html",
+    "build": "parcel build panel.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pranaydutta89/trapperjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pranaydutta89/trapperjs/issues"
+  },
+  "homepage": "https://github.com/pranaydutta89/trapperjs#readme",
+  "devDependencies": {
+    "@types/react": "^16.7.6",
+    "parcel-bundler": "^1.10.3",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "typescript": "^3.1.6"
+  }
+}
