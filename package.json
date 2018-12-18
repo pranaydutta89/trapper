@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel panel.html",
+    "dev": "rimraf dist && parcel panel.html",
     "build": "parcel build panel.html"
   },
   "repository": {
@@ -24,6 +24,7 @@
     "parcel-bundler": "^1.10.3",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "typescript": "^3.2.2"
+    "typescript": "^3.2.2",
+    "rimraf": "^2.6.2"
   }
 }

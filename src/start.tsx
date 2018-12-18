@@ -19,25 +19,25 @@ class App extends React.Component<IStartProps> {
 
     private init() {
         if (!this.props.devMode) {
-            // chrome.runtime.onMessage.addListener(
-            //     async (request, sender, sendResponse: any) => {
-            //         console.log("background.js got a message")
-            //         console.log(request);
-            //         console.log(sender);
-            //         const image = await new Promise((res, rej) => {
-            //             chrome.tabs.captureVisibleTab(null, {}, (image: string) => {
-            //                 // You can add that image HTML5 canvas, or Element.
-            //                 res(image);
-            //             });
-            //         })
-            //         this.setState({
-            //             messageData: {
-            //                 error_type: sendResponse.error_type,
-            //                 message: sendResponse.message,
-            //                 image
-            //             }
-            //         });
-            //     });
+            chrome.runtime.onMessage.addListener(
+                async (request, sender, sendResponse: any) => {
+                    console.log("background.js got a message")
+                    console.log(request);
+                    console.log(sender);
+                    const image = await new Promise((res, rej) => {
+                        chrome.tabs.captureVisibleTab((image: string) => {
+                            // You can add that image HTML5 canvas, or Element.
+                            res(image);
+                        });
+                    })
+                    this.setState({
+                        messageData: {
+                            error_type: sendResponse.error_type,
+                            message: sendResponse.message,
+                            image
+                        }
+                    });
+                });
         }
         else {
             let count = 0;
@@ -70,5 +70,5 @@ class App extends React.Component<IStartProps> {
 
 
 ReactDOM.render((
-    <App devMode={true} />
+    <App devMode={process.env.devMode == 'true' ? true : false} />
 ), document.getElementById('app'))
