@@ -1,12 +1,13 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Main from './main/controller';
-import * as testDataJson from './testData.json';
+import testDataJson from './testData';
+import { IStartProps } from './_interfaces';
 
-class App extends React.Component {
+class App extends React.Component<IStartProps> {
 
     state: any;
-    constructor(props: any) {
+    constructor(props: IStartProps) {
 
         super(props);
         this.state = {
@@ -17,7 +18,7 @@ class App extends React.Component {
     }
 
     private init() {
-        if (chrome) {
+        if (!this.props.devMode) {
             // chrome.runtime.onMessage.addListener(
             //     async (request, sender, sendResponse: any) => {
             //         console.log("background.js got a message")
@@ -30,7 +31,7 @@ class App extends React.Component {
             //             });
             //         })
             //         this.setState({
-            //             alert: {
+            //             messageData: {
             //                 error_type: sendResponse.error_type,
             //                 message: sendResponse.message,
             //                 image
@@ -46,12 +47,13 @@ class App extends React.Component {
                 }
                 const obj = testDataJson[count];
                 this.setState({
-                    alert: {
+                    messageData: {
                         error_type: obj.error_type,
                         message: obj.message,
                         image: obj.image
                     }
                 });
+                count += 1;
             }, 1000);
         }
     }
@@ -68,5 +70,5 @@ class App extends React.Component {
 
 
 ReactDOM.render((
-    <App />
+    <App devMode={true} />
 ), document.getElementById('app'))

@@ -1,6 +1,7 @@
 
 import * as React from 'react';
 import { ILoggerProps } from '../../_interfaces';
+import template from './template';
 
 
 export default class logger extends React.Component<ILoggerProps>{
@@ -13,11 +14,13 @@ export default class logger extends React.Component<ILoggerProps>{
             logData: []
         }
     }
-    
-    
+
+    render() {
+        return template(this);
+    }
     componentWillReceiveProps() {
         if (this.props.data) {
-            this.setState({ logData: this.state.logData.push(this.props.data) });
+            this.setState({ logData: this.state.logData.concat([this.props.data]) });
         }
     }
 }

@@ -12,6 +12,10 @@ export interface IScreenShotProps{
     image:string
 }
 
+export interface IStartProps{
+    devMode:boolean
+}
+
 export interface IMessage{
     error_type:errorType,
     message:string,
