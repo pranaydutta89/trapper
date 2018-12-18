@@ -9,8 +9,8 @@
         "target": "es5",
         "sourceMap": true,
         "forceConsistentCasingInFileNames": true,
-        "types": [
-            
-        ]
+        "lib": ["dom","es2015"],
+        "jsx": "react",
+        "resolveJsonModule": true
     }
 }

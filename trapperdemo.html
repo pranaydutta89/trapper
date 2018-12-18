@@ -11,7 +11,7 @@
 <script>
     document.getElementById("theButton").addEventListener("click",
         function () {
-            window.postMessage({ type: "FROM_PAGE", text: "Hello from the webpage!" }, "*");
+            window.postMessage({ error_type: "FROM_PAGE", message: "Hello from the webpage!" }, "*");
         }, false);
 </script>
 
