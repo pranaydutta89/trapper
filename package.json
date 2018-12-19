@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "rimraf dist && parcel panel.html",
-    "build": "parcel build panel.html"
+    "predev": "rimraf dist && copyfiles -f extension/*.* dist",
+    "dev": "parcel src/panel.html",
+    "prebuild": "rimraf dist && copyfiles -f extension/*.* dist",
+    "build": "parcel build src/panel.html"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "typescript": "^3.2.2",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "copyfiles": "^2.1.0"
   }
 }
