@@ -3,6 +3,13 @@ import * as React from 'react';
 
 export default (_this: ScreenShot) => {
     return (<div>
-        <img src={_this.props.image} />
+        {_this.props.image ?
+            <div>
+                <img className="img-fluid" src={_this.props.image} />
+            </div>:
+            <div className='no_message'>
+                Click on log for state
+            </div>
+    }
     </div>)
 }

@@ -1,0 +1,17 @@
+@import './logger/style.css';
+
+.main_panel{
+    margin-top: 1%
+}
+
+.heading{
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+.no_message{
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+

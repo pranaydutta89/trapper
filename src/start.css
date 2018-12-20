@@ -1,0 +1,28 @@
+@import './main/style.css';
+
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:#636262;
+}
+
+label{
+    font-weight: bold;
+ }
+ .error{
+    color: red;
+}
+
+.info{
+    color:grey;
+}
+
+.log{
+    color: black
+}
+.warn{
+    color:yellowgreen;
+}
+
+.align-center{
+    text-align: center;
+}

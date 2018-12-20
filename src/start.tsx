@@ -54,7 +54,6 @@ class App extends React.Component<IStartProps> {
     render() {
         return (
             <div>
-                start
                 <Main data={this.state.messageData} />
             </div>
         )
@@ -63,5 +62,5 @@ class App extends React.Component<IStartProps> {
 
 
 ReactDOM.render((
-    <App devMode={false} />
+    <App devMode={true} />
 ), document.getElementById('app'))

@@ -4,8 +4,20 @@ import template from './template';
 
 export default class Main extends React.Component<IMainProps> {
 
+    state: any
     constructor(props: IMainProps) {
         super(props);
+        this.state = {
+            firstDataReceive: false
+        }
+    }
+
+    componentWillReceiveProps() {
+        if (this.props.data) {
+            this.setState({
+                firstDataReceive: true
+            })
+        }
     }
 
     render() {
