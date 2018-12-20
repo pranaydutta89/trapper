@@ -6,12 +6,26 @@
 </head>
 
 <body>
-    <button id='theButton'>the button</button>
+    <button id='errorButton'>Error</button>
+    <button id='warnButton'>Warn</button>
+    <button id='logButton'>Log</button>
 </body>
 <script>
-    document.getElementById("theButton").addEventListener("click",
+    document.getElementById("errorButton").addEventListener("click",
         function () {
-            window.postMessage({ error_type: "FROM_PAGE", message: "Hello from the webpage!" }, "*");
+            window.postMessage({ error_type: "error", message: "Hello error from the webpage!" }, "*");
+            document.getElementById("errorButton").innerText = 'Error' + Math.random()
+        }, false);
+
+    document.getElementById("warnButton").addEventListener("click",
+        function () {
+            window.postMessage({ error_type: "warn", message: "Hello warn from the webpage!" }, "*");
+            document.getElementById("warnButton").innerText = 'Warn' + Math.random()
+        }, false);
+    document.getElementById("logButton").addEventListener("click",
+        function () {
+            window.postMessage({ error_type: "log", message: "Hello log from the webpage!" }, "*");
+            document.getElementById("logButton").innerText = 'Log' + Math.random()
         }, false);
 </script>
 
