@@ -2,6 +2,7 @@ import { errorType } from "./enums";
 
 export interface IMainProps{
     data:IMessage
+    reset:boolean
 }
 
 export interface ILoggerProps{

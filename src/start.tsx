@@ -11,7 +11,8 @@ class App extends React.Component<IStartProps> {
 
         super(props);
         this.state = {
-            messageData: null
+            messageData: null,
+            reset: null
         }
         this.init();
 
@@ -20,26 +21,30 @@ class App extends React.Component<IStartProps> {
     private init() {
         if (!this.props.devMode) {
             chrome.runtime.onMessage.addListener(
-                async (message, sender, sendResponse: any) => {
+                (message, sender, sendResponse: any) => {
                     if (message.error_type && message.message && message.image) {
-                        await this.setState({
+                        this.setState({
                             messageData: {
                                 error_type: message.error_type,
                                 message: message.message,
                                 image: message.image
-                            }
+                            },
+                            reset: false
                         });
+                    }
+                    else if (message.reset === true) {
+                        this.setState({ reset: true })
                     }
                 });
         }
         else {
             let count = 0;
-            setInterval(async () => {
+            setInterval(() => {
                 if (count === testDataJson.length) {
                     count = 0;
                 }
                 const obj = testDataJson[count];
-                await this.setState({
+                this.setState({
                     messageData: {
                         error_type: obj.error_type,
                         message: obj.message,
@@ -55,7 +60,7 @@ class App extends React.Component<IStartProps> {
         return (
             <div>
                 {this.state.messageData ?
-                    <Main data={this.state.messageData} />
+                    <Main data={this.state.messageData} reset={this.state.reset} />
                     : <div></div>
                 }
             </div>

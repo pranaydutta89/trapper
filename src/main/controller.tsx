@@ -18,6 +18,12 @@ export default class Main extends React.Component<IMainProps> {
                 firstDataReceive: true
             })
         }
+
+        if (this.props.reset) {
+            this.setState({
+                firstDataReceive: false
+            })
+        }
     }
 
     render() {
