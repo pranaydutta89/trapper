@@ -9,7 +9,7 @@ chrome.runtime.onMessage.addListener(
                     , { format: "png" },
                     (src) => {
                         message.image = src;
-                        // chrome.runtime.sendMessage(message);
+                        chrome.runtime.sendMessage(message);
                     }
                 );
             });

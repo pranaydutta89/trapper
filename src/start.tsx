@@ -19,27 +19,18 @@ class App extends React.Component<IStartProps> {
 
     private init() {
         if (!this.props.devMode) {
-            // chrome.runtime.onMessage.addListener(
-            //     async (request, sender, sendResponse: any) => {
-            //         console.log("background.js got a message")
-            //         console.log(request);
-            //         console.log(sender);
-            //         // const image = await new Promise((res, rej) => {
-
-
-            //         //     chrome.tabs.captureVisibleTab((image: string) => {
-            //         //         // You can add that image HTML5 canvas, or Element.
-            //         //         res(image);
-            //         //     });
-            //         // })
-            //         this.setState({
-            //             messageData: {
-            //                 error_type: sendResponse.error_type,
-            //                 message: sendResponse.message,
-            //                 image: sendResponse.image
-            //             }
-            //         });
-            //     });
+            chrome.runtime.onMessage.addListener(
+                (message, sender, sendResponse: any) => {
+                    if (message.error_type && message.message && message.image) {
+                        this.setState({
+                            messageData: {
+                                error_type: message.error_type,
+                                message: message.message,
+                                image: message.image
+                            }
+                        });
+                    }
+                });
         }
         else {
             let count = 0;
