@@ -20,9 +20,9 @@ class App extends React.Component<IStartProps> {
     private init() {
         if (!this.props.devMode) {
             chrome.runtime.onMessage.addListener(
-                (message, sender, sendResponse: any) => {
+                async (message, sender, sendResponse: any) => {
                     if (message.error_type && message.message && message.image) {
-                        this.setState({
+                        await this.setState({
                             messageData: {
                                 error_type: message.error_type,
                                 message: message.message,
@@ -34,12 +34,12 @@ class App extends React.Component<IStartProps> {
         }
         else {
             let count = 0;
-            setInterval(() => {
+            setInterval(async () => {
                 if (count === testDataJson.length) {
                     count = 0;
                 }
                 const obj = testDataJson[count];
-                this.setState({
+                await this.setState({
                     messageData: {
                         error_type: obj.error_type,
                         message: obj.message,
@@ -54,7 +54,10 @@ class App extends React.Component<IStartProps> {
     render() {
         return (
             <div>
-                <Main data={this.state.messageData} />
+                {this.state.messageData ?
+                    <Main data={this.state.messageData} />
+                    : <div></div>
+                }
             </div>
         )
     }
@@ -62,5 +65,5 @@ class App extends React.Component<IStartProps> {
 
 
 ReactDOM.render((
-    <App devMode={true} />
+    <App devMode={false} />
 ), document.getElementById('app'))

@@ -10,8 +10,8 @@ export default (_this: logger) => {
                 {
                     _this.state.logData.map((val: IMessage, index: number) => {
                         return (
-                            <div>
-                                <div key={index} onClick={() => _this.setState({ image: val.image })}>
+                            <div key={index}>
+                                <div onClick={() => _this.setState({ image: val.image })}>
                                     <div><label>Type - </label><span className={`${val.error_type}`}>{val.error_type}</span></div>
                                     <div><label>Message - </label>
                                         <span className={`${val.error_type}`}>{val.message}
