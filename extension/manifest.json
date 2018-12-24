@@ -11,6 +11,11 @@
         ],
         "persistent": false
     },
+    "icons": {
+        "16": "tr16.png",
+        "48": "tr48.png",
+        "128": "tr128.png"
+    },
     "permissions": [
         "tabs",
         "activeTab",

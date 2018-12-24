@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "predev": "rimraf dist && copyfiles -f extension/*.* dist",
+    "predev": "rimraf dist && copyfiles -f extension/**/*.* dist",
     "dev": "parcel src/panel.html",
-    "prebuild": "rimraf dist && copyfiles -f extension/*.* dist",
+    "prebuild": "rimraf dist && copyfiles -f extension/**/*.* dist",
     "build": "parcel build src/panel.html"
   },
   "repository": {

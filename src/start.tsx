@@ -67,5 +67,5 @@ class App extends React.Component<IStartProps> {
 
 
 ReactDOM.render((
-    <App devMode={true} />
+    <App devMode={false} />
 ), document.getElementById('app'))
