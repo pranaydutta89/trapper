@@ -22,5 +22,8 @@ export default class logger extends React.Component<ILoggerProps>{
         if (nextProps.data) {
             this.setState({ logData: this.state.logData.concat([nextProps.data]) });
         }
+        else {
+            this.setState({ logData: [], image: null });
+        }
     }
 }

@@ -33,7 +33,10 @@ class App extends React.Component<IStartProps> {
                         });
                     }
                     else if (message.reset === true) {
-                        this.setState({ reset: true })
+                        this.setState({
+                            reset: true,
+                            messageData: null
+                        })
                     }
                 });
         }
