@@ -52,17 +52,14 @@ class App extends React.Component<IStartProps> {
                     }
                 });
                 count += 1;
-            }, 1000);
+            }, 3000);
         }
     }
 
     render() {
         return (
             <div>
-                {this.state.messageData ?
-                    <Main data={this.state.messageData} reset={this.state.reset} />
-                    : <div></div>
-                }
+                <Main data={this.state.messageData} reset={this.state.reset} />
             </div>
         )
     }
@@ -70,5 +67,5 @@ class App extends React.Component<IStartProps> {
 
 
 ReactDOM.render((
-    <App devMode={false} />
+    <App devMode={true} />
 ), document.getElementById('app'))

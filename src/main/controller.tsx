@@ -12,14 +12,16 @@ export default class Main extends React.Component<IMainProps> {
         }
     }
 
-    componentWillReceiveProps() {
-        if (this.props.data) {
+
+    componentWillReceiveProps(nextProps: IMainProps, nextContext: any) {
+
+        if (nextProps.data) {
             this.setState({
                 firstDataReceive: true
             })
         }
 
-        if (this.props.reset) {
+        if (nextProps.reset) {
             this.setState({
                 firstDataReceive: false
             })

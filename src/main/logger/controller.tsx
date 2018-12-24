@@ -18,9 +18,9 @@ export default class logger extends React.Component<ILoggerProps>{
     render() {
         return template(this);
     }
-    componentWillReceiveProps() {
-        if (this.props.data) {
-            this.setState({ logData: this.state.logData.concat([this.props.data]) });
+    componentWillReceiveProps(nextProps: ILoggerProps) {
+        if (nextProps.data) {
+            this.setState({ logData: this.state.logData.concat([nextProps.data]) });
         }
     }
 }
