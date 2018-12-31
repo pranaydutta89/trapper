@@ -1,9 +1,9 @@
 # Trapper Chrome Extension 
 
-####New way logging your applications error or info messages
+#### New way logging your applications error or info messages
 
 
-#####Steps to follow
+##### Steps to follow
 
 1) Install chrome extension from https://chrome.google.com/webstore/detail/trapper/ibgiefpdocmkhbcjbblbiipgpefigafl
 
